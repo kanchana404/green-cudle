@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CARE_SYMBOLS } from '@/components/CareSymbols';
 import { NewsletterForm } from '@/components/NewsletterForm';
 import { MEDIA } from '@/lib/media';
-import { CATEGORIES } from '@/lib/categories';
+import { COLLECTIONS } from '@/lib/collections';
 import { FOOTER_ABOUT, FOOTER_HELP, SITE } from '@/lib/site';
 
 function Column({ heading, children }: { readonly heading: string; readonly children: React.ReactNode }) {
@@ -32,10 +32,10 @@ export function Footer() {
   return (
     <footer className="border-t border-rule">
       <div className="shell grid gap-12 py-24 md:grid-cols-2 lg:grid-cols-4">
-        <Column heading="Shop">
-          {CATEGORIES.map((category) => (
-            <ColumnLink key={category.slug} href={`/shop?category=${category.slug}`}>
-              {category.name}
+        <Column heading="Collections">
+          {COLLECTIONS.map((collection) => (
+            <ColumnLink key={collection.slug} href={`/collections/${collection.slug}`}>
+              {collection.name}
             </ColumnLink>
           ))}
         </Column>

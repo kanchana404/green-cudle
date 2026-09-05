@@ -17,7 +17,7 @@ export const FABRIC_SPEC: readonly FabricSpecRow[] = [
   {
     label: 'DYE',
     value:
-      'None. Undyed across every colourway except Moss and Sprout, which use GOTS-approved low-impact dye.',
+      'Plant and root only. Turmeric, madder, logwood, indigo and walnut hull, to a GOTS-approved recipe. No synthetic dye at any stage.',
     tabular: false,
   },
   { label: 'FINISH', value: 'No softener, no brightener, no resin', tabular: false },
@@ -26,3 +26,8 @@ export const FABRIC_SPEC: readonly FabricSpecRow[] = [
   { label: 'WASH', value: '30°C, tumble low, no bleach, no iron on print', tabular: true },
   { label: 'SHRINKAGE', value: 'Pre-washed. Under 3% after ten cycles.', tabular: true },
 ] as const;
+
+/** The composition paragraph. Stated once so the homepage and /fabric cannot drift. */
+export const COMPOSITION_HEADING = "What's actually in it";
+export const COMPOSITION_BODY =
+  "One fibre. No softener, no optical brightener, no formaldehyde resin. The cotton is grown without synthetic pesticides, dyed with root and leaf rather than anything synthetic, and knitted flat-seam so nothing sits raised against the skin. That's the entire specification, and it's on the label.";

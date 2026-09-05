@@ -1,31 +1,33 @@
 import type { Metadata } from 'next';
 import { GrowRuler } from '@/components/GrowRuler';
-import { Categories } from '@/components/home/Categories';
+import { Collections } from '@/components/home/Collections';
 import { Fabric } from '@/components/home/Fabric';
 import { Hero } from '@/components/home/Hero';
+import { InTheBox } from '@/components/home/InTheBox';
 import { Journal } from '@/components/home/Journal';
 import { Newsletter } from '@/components/home/Newsletter';
-import { Products } from '@/components/home/Products';
-import { SITE } from '@/lib/site';
+import { SITE, openGraphFor } from '@/lib/site';
 
-const TITLE = 'Undyed organic cotton, newborn to 3 years';
+const TITLE = 'A naturally gentle welcome gift';
 
 export const metadata: Metadata = {
   title: `${SITE.name} — ${TITLE}`,
   description: SITE.description,
-  openGraph: {
-    type: 'website',
-    url: SITE.url,
-    siteName: SITE.name,
+  openGraph: openGraphFor({
     title: `${SITE.name} — ${TITLE}`,
     description: SITE.description,
-  },
+    path: '',
+  }),
 };
 
 export default function Home() {
   return (
     <>
       <Hero />
+
+      <div className="hairline" />
+
+      <Collections />
 
       <div className="hairline" />
 
@@ -36,11 +38,7 @@ export default function Home() {
 
       <div className="hairline" />
 
-      <Categories />
-
-      <div className="hairline" />
-
-      <Products />
+      <InTheBox />
 
       <div className="hairline" />
 

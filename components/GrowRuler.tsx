@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { GarmentSilhouette } from '@/components/GarmentSilhouette';
-import { productsInBand } from '@/lib/products';
+import { COLLECTIONS, PIECE_COUNT } from '@/lib/collections';
 import { RULER_MAX_CM, RULER_MIN_CM, SIZE_BANDS, bandIndexForCm, clampCm } from '@/lib/sizes';
 
 const SPAN = RULER_MAX_CM - RULER_MIN_CM;
@@ -160,7 +160,6 @@ export function GrowRuler({ fallback = 'noscript' }: { readonly fallback?: 'nosc
 
   const bandIndex = bandIndexForCm(displayCm);
   const band = SIZE_BANDS[bandIndex];
-  const inBand = productsInBand(bandIndex);
   const markerCm = Math.round(displayCm);
 
   return (
@@ -184,8 +183,12 @@ export function GrowRuler({ fallback = 'noscript' }: { readonly fallback?: 'nosc
             <GarmentSilhouette cm={displayCm} />
           </div>
 
+          {/* Every collection is cut in every band, so the useful thing to say
+              is what the box holds at this height, not which ones qualify. */}
           <p className="label col-span-12 mt-6 text-ink lg:col-span-6">
-            In this size: {inBand.map((product) => product.name).join(', ')}
+            <span className="tabular">{PIECE_COUNT}</span> pieces cut to{' '}
+            <span className="tabular">{band?.range ?? ''}</span>, in any of the{' '}
+            <span className="tabular">{COLLECTIONS.length}</span> collections
           </p>
         </div>
       </div>

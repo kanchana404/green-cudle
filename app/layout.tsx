@@ -10,7 +10,7 @@ import { TOKENS } from '@/lib/tokens';
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — undyed organic cotton, newborn to 3 years`,
+    default: `${SITE.name} — naturally dyed organic cotton, newborn to 3 years`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     siteName: SITE.name,
     locale: 'en_GB',
     url: SITE.url,
-    title: `${SITE.name} — undyed organic cotton, newborn to 3 years`,
+    title: `${SITE.name} — naturally dyed organic cotton, newborn to 3 years`,
     description: SITE.description,
   },
 };

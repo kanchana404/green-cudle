@@ -5,7 +5,7 @@ import { SITE } from '@/lib/site';
 import { TOKENS } from '@/lib/tokens';
 
 export const runtime = 'nodejs';
-export const alt = `${SITE.name} — undyed organic cotton, newborn to 3 years`;
+export const alt = `${SITE.name} — naturally dyed organic cotton, newborn to 3 years`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -55,7 +55,7 @@ export default async function OpengraphImage() {
               color: TOKENS.slate,
             }}
           >
-            NEWBORN — 3 YEARS / UNDYED GOTS COTTON
+            NEWBORN — 3 YEARS / NATURALLY DYED GOTS COTTON
           </div>
         </div>
         <div style={{ display: 'flex', height: 1, width: '100%', backgroundColor: TOKENS.rule }} />

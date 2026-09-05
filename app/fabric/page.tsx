@@ -1,3 +1,4 @@
+import { COMPOSITION_BODY, COMPOSITION_HEADING } from '@/lib/fabric';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { CareStrip } from '@/components/CareSymbols';
@@ -7,7 +8,7 @@ import { PageHeader } from '@/components/pages/PageHeader';
 import { SITE, openGraphFor } from '@/lib/site';
 
 const DESCRIPTION =
-  'One fibre, knitted flat-seam, undyed in every colourway but two. The full fabric specification, what certificate GOTS-CU-1084219 covers, and what it does not audit.';
+  'One fibre, knitted flat-seam, dyed with root and leaf. The full fabric specification, what certificate GOTS-CU-1084219 covers, and what it does not audit.';
 
 export const metadata: Metadata = {
   title: 'Fabric',
@@ -19,10 +20,7 @@ export const metadata: Metadata = {
   }),
 };
 
-const COMPOSITION_HEADING = "What's actually in it";
 
-const COMPOSITION_BODY =
-  "One fibre. No dye, no softener, no optical brightener, no formaldehyde resin. The cotton is grown without synthetic pesticides, spun undyed, and knitted flat-seam so nothing sits raised against the skin. That's the entire specification, and it's on the label.";
 
 export default function FabricPage() {
   return (
@@ -52,13 +50,13 @@ export default function FabricPage() {
         <div className="grid12">
           <div className="col-span-12 lg:col-span-5">
             <h2 id="dye-heading" className="text-heading text-ink">
-              The two colourways that carry dye
+              Where the five colours come from
             </h2>
             <p className="mt-6 max-w-measure text-body text-slate">
-              Every natural colourway leaves the mill the colour the cotton already was. Moss and
-              Sprout are the exceptions, dyed to a GOTS-approved low-impact recipe and washed until
-              the water runs clear. These are the baths and the swatch cards they are matched
-              against.
+              Turmeric root, madder root, logwood, indigo and walnut hull. Every colour we sell is
+              pulled out of a plant, to a GOTS-approved recipe, and the cloth is washed until the
+              water runs clear before it is cut. These are the baths and the swatch cards each batch
+              is matched against.
             </p>
           </div>
 
@@ -170,9 +168,9 @@ export default function FabricPage() {
             </h2>
             <p className="mt-6 max-w-measure text-body text-slate">
               Wash at <span className="tabular">30</span>&deg;C with a detergent carrying no optical
-              brightener, tumble low or line dry, and keep bleach away from it. The natural
-              colourways carry no dye at all, and Moss and Sprout are dyed low-impact and colourfast,
-              so the only thing a hot wash changes is the height band you bought.
+              brightener, tumble low or line dry, and keep bleach away from it. Plant dye is fixed
+              before the cloth leaves us and will not run onto anything else, though the darker
+              collections settle a shade over the first few washes and then hold.
             </p>
           </div>
 

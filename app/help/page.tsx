@@ -175,8 +175,8 @@ export default function HelpPage() {
 
       <HelpSection id="care" title="Care" meta="Organic cotton">
         <p className="max-w-measure text-body text-ink">
-          The natural colourways have no dye to protect, and Moss and Sprout are dyed colourfast, so a
-          wash is only ever about the fibre. Wash it often and wash it cool.
+          The dye is fixed before the box is packed, so a wash is only ever about the fibre. Wash it
+          often and wash it cool.
         </p>
         <FactList facts={CARE} className="mt-8" />
         <p className="mt-8 max-w-measure text-body text-slate">

@@ -1,4 +1,4 @@
-import { formatPrice } from '@/lib/products';
+import { formatPrice } from '@/lib/collections';
 
 /** Every price is tabular. Reduced prices carry a 1px strike, no colour cue. */
 export function Price({

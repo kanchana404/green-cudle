@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 
-type CartLine = { readonly slug: string; readonly size: string; readonly colourway: string };
+type CartLine = { readonly slug: string; readonly size: string; readonly collection: string };
 
 type CartValue = {
   readonly count: number;

@@ -4,11 +4,11 @@ export const SITE = {
   gotsCert: 'GOTS-CU-1084219',
   url: 'https://greencuddles.com',
   description:
-    'Undyed GOTS-certified organic cotton for newborn to three years. Flat-seam, envelope-neck, sized by centimetres.',
+    'A naturally dyed GOTS-certified organic cotton gift box for newborn to three years. Seven pieces, five collections, sized by centimetres.',
 } as const;
 
 export const NAV = [
-  { href: '/shop', label: 'Shop' },
+  { href: '/collections', label: 'Collections' },
   { href: '/sizes', label: 'Sizes' },
   { href: '/fabric', label: 'Fabric' },
   { href: '/journal', label: 'Journal' },
@@ -49,7 +49,7 @@ export function openGraphFor(input: { title: string; description: string; path: 
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: `${SITE.name} — undyed organic cotton, newborn to 3 years`,
+        alt: `${SITE.name} — naturally dyed organic cotton, newborn to 3 years`,
       },
     ],
   };

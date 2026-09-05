@@ -183,3 +183,47 @@ that draws one instance: weight 500 at optical size 48. That instance is 21KB.
 `app/fonts.ts` now self-hosts the pinned instance through `next/font/local`, so
 the rendering is identical and 54KB leaves the critical path. Mobile Lighthouse
 performance moved from 92-96 to 94-99 as a result.
+
+## 17. The catalogue is one gift box, not eight garments
+
+The brief described eight separately purchasable garments. The business does not
+sell those: it sells a single gift box in five naturally dyed collections, with
+fixed contents.
+
+`lib/products.ts` and `lib/categories.ts` are gone, replaced by
+`lib/collections.ts`. `/shop` and `/shop/[slug]` became `/collections` and
+`/collections/[slug]`, with `/shop` permanently redirecting so old links hold.
+The filter rail went with them: five items do not need faceted search.
+
+The Grow Ruler survives unchanged as the sizing spine, since a gift still has to
+fit. It now reports what the box holds at a given height rather than which
+products are cut in that band.
+
+## 18. "Undyed" is gone from the copy
+
+The brief's positioning was undyed cotton, and both the verbatim fabric
+paragraph and the spec table's DYE row said so. The client has confirmed the
+clothes are dyed with natural products, so those claims were false.
+
+Every "undyed" claim in metadata, the fabric paragraph, the spec table and the
+care copy now describes natural dyeing: turmeric, madder, logwood, indigo and
+walnut hull. Deviation 10, which recorded the paragraph-versus-table clash, is
+resolved by this: both now say the same true thing.
+
+The one remaining use of the word is in the Lavender Whisper description, where
+it refers to the cloth's state *before* dyeing, which is accurate.
+
+## 19. Hero copy is the client's, with one word changed
+
+The headline and body are supplied verbatim, including "little miracles" and
+"priceless", which sit outside the brief's original vocabulary rules. That is
+the client's call on their own brand voice.
+
+One word was changed: the body read "undyed organic cotton" while the same
+message confirmed the cloth is naturally dyed. It now reads "naturally dyed
+organic cotton" so the sentence is true. Nothing else was touched.
+
+`display-xl` was also pulled in from `clamp(3rem, 9vw, 8.5rem)` to
+`clamp(2.5rem, 6vw, 5.5rem)`: the supplied headline is a full sentence rather
+than the shorter one the scale was drawn for, and at the original size it pushed
+the body copy and both actions below the fold.

@@ -1,7 +1,8 @@
 # Green Cuddles
 
-Undyed GOTS-certified organic cotton for newborn to three years. Baby clothing
-only, unsexed, sized by centimetres.
+A naturally dyed GOTS-certified organic cotton gift box for newborn to three
+years. One box of seven pieces, five colour collections, sized by centimetres
+rather than by age.
 
 ## Stack
 
@@ -64,11 +65,22 @@ no layout shift:
 
 ## Routes
 
-`/` · `/shop` · `/shop/[slug]` · `/sizes` · `/fabric` · `/journal` · `/help`
+`/` · `/collections` · `/collections/[slug]` · `/sizes` · `/fabric` · `/journal` · `/help`
 
-`/help` is not in the original route list. It exists because the footer's Help
-column names Shipping, Returns, Care and Contact, and four links that go nowhere
-is worse than one more page.
+`/shop` permanently redirects to `/collections`: the site was a catalogue of
+eight separate garments before it was one gift box, and old links should not
+404.
+
+## The model
+
+`lib/collections.ts` is the whole catalogue. There is one box at one price. It
+holds the same seven pieces every time (`BOX_CONTENTS`); what changes between
+the five collections is the plant the cotton was dyed with. The buyer picks a
+collection and a height band, and that is the entire configuration.
+
+Collection swatch colours are the only values outside the seven-token palette.
+They are the product, not the interface, so they are declared on each collection
+in `lib/collections.ts` and excluded from the raw-hex gate.
 
 ## Measured
 

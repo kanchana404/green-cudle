@@ -55,11 +55,11 @@ export const MEDIA = {
   },
 } as const satisfies Record<string, Media>;
 
-/** The square garment shot for a product, plus its detail crop. */
-export function productImage(slug: string, alt: string): Media {
-  return { src: `/media/products/${slug}.jpg`, width: 1000, height: 1000, alt };
+/** The square cloth shot for a collection, plus its close detail crop. */
+export function collectionImage(slug: string, alt: string): Media {
+  return { src: `/media/collections/${slug}.jpg`, width: 900, height: 900, alt };
 }
 
-export function productDetailImage(slug: string, alt: string): Media {
-  return { src: `/media/products/${slug}-detail.jpg`, width: 800, height: 800, alt };
+export function collectionDetailImage(slug: string, alt: string): Media {
+  return { src: `/media/collections/${slug}-detail.jpg`, width: 700, height: 700, alt };
 }
