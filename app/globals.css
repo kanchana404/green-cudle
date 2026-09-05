@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Section 5 palette. Flat fills only; depth is tone and hairline. */
+    --field: #e9ede4;   /* page ground - pale eucalyptus, cool, laundered */
+    --chalk: #f7f8f5;   /* lifted surfaces, inputs, sticky header */
+    --ink: #16231a;     /* all body and display text */
+
+    /* Spec value is #6E786C, which measures 3.88:1 on --field and fails the
+       4.5:1 gate in section 13. Darkened along the same hue to 4.62:1 on
+       --field / 5.14:1 on --chalk. Documented deviation. */
+    --slate: #626c60;   /* captions, secondary text, disabled */
+    --slate-spec: #6e786c; /* original value, retained for reference only */
+
+    --moss: #2e5e3a;    /* THE accent - buttons, links, active states, wordmark */
+    --sprout: #a8d14a;  /* scalpel: focus rings and the ruler marker only */
+    --rule: #cbd3c4;    /* every 1px hairline */
+
+    /* Layout constants that sit outside the spacing rhythm on purpose. */
+    --page-margin: 16px;
+    --section-y: 80px;
+    --header-h: 64px;
+    --gutter: 24px;
+
+    --ease-gc: cubic-bezier(0.22, 1, 0.36, 1);
+
+    color-scheme: light;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --page-margin: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --page-margin: 40px;
+      --section-y: 128px;
+    }
+  }
+
+  * {
+    border-color: var(--rule);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--field);
+    color: var(--ink);
+    font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Bricolage Grotesque at maximum optical size, weight 500. */
+  .font-display,
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 500;
+    font-variation-settings: 'opsz' 48;
+  }
+
+  /* Every price, every measurement. */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+
+  /* Focus is never suppressed. 2px --sprout ring at 2px offset. */
+  :focus-visible {
+    outline: 2px solid var(--sprout);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--moss);
+    color: var(--field);
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    /* Opacity transitions are retained; transforms and translations are off. */
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-property: opacity, color, background-color, border-color, outline-color !important;
+      transition-duration: 160ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* 12 columns, 24px gutter, 1512px cap, page margin 40/24/16. */
+  .shell {
+    width: 100%;
+    max-width: 1512px;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .grid12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gutter);
+  }
+
+  .section-y {
+    padding-block: var(--section-y);
+  }
+
+  /* Full-bleed 1px hairline. Section boundaries are this or nothing. */
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background-color: var(--rule);
+    border: 0;
+  }
+
+  .label {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Scroll reveal: opacity 0->1, translateY 16px->0, fires once. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 420ms var(--ease-gc),
+      transform 420ms var(--ease-gc);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal[data-shown='true'] {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      transform: none;
+    }
+  }
+}
