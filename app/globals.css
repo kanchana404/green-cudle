@@ -27,6 +27,11 @@
 
     --ease-gc: cubic-bezier(0.22, 1, 0.36, 1);
 
+    /* Grow Ruler silhouette: rendered height is always centimetres x this.
+       Smaller on a phone so the drawing fits beside the size name; the ratio
+       between any two heights is identical at every breakpoint. */
+    --sil-k: 1.6363636px;
+
     color-scheme: light;
   }
 
@@ -40,6 +45,7 @@
     :root {
       --page-margin: 40px;
       --section-y: 128px;
+      --sil-k: 2.6363636px;
     }
   }
 
@@ -62,7 +68,8 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Bricolage Grotesque at maximum optical size, weight 500. */
+  /* Bricolage Grotesque, weight 500. The face is a pinned instance at the
+     maximum optical size of 48, so no variation settings are needed here. */
   .font-display,
   h1,
   h2,
@@ -70,7 +77,6 @@
   h4 {
     font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
     font-weight: 500;
-    font-variation-settings: 'opsz' 48;
   }
 
   /* Every price, every measurement. */
@@ -143,13 +149,36 @@
     border: 0;
   }
 
+  /*
+   * The mono micro-label is 0.6875rem (11px) by the type scale. On a phone that
+   * falls under the 12px legibility floor, and this label does real work here:
+   * sizes, weights, prices and filter headings. Below `sm` it steps up to 12px
+   * and returns to the specified 11px from `sm` up.
+   */
   .label {
     font-family: var(--font-mono), ui-monospace, monospace;
     font-weight: 500;
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     line-height: 1.4;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  @media (min-width: 640px) {
+    .label {
+      font-size: 0.6875rem;
+    }
+  }
+
+  /* Same floor for the 0.625rem variant under the size chips. */
+  .text-label-sm {
+    font-size: 0.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .text-label-sm {
+      font-size: 0.625rem;
+    }
   }
 
   /* Scroll reveal: opacity 0->1, translateY 16px->0, fires once. */

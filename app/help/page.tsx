@@ -2,7 +2,9 @@ import type { Metadata } from 'next';
 import { Price } from '@/components/Price';
 import { FactList, type Fact } from '@/components/pages/FactList';
 import { HelpSection } from '@/components/pages/HelpSection';
+import Image from 'next/image';
 import { PageHeader } from '@/components/pages/PageHeader';
+import { MEDIA } from '@/lib/media';
 import { SITE, openGraphFor } from '@/lib/site';
 
 const DESCRIPTION =
@@ -105,6 +107,20 @@ export default function HelpPage() {
           Orders picked before <span className="tabular">14:00</span> IST on a working day leave the
           same day, from one warehouse in Bengaluru. Everything ships within India.
         </p>
+
+        <figure className="mt-8 max-w-[520px]">
+          <Image
+            src={MEDIA.packaging.src}
+            alt={MEDIA.packaging.alt}
+            width={MEDIA.packaging.width}
+            height={MEDIA.packaging.height}
+            sizes="(min-width: 768px) 520px, 100vw"
+            className="h-auto w-full"
+          />
+          <figcaption className="label mt-3 text-slate">
+            Kraft box, cotton ribbon, recycled paper. No plastic in the parcel
+          </figcaption>
+        </figure>
 
         <table className="mt-8 w-full border-collapse text-left">
           <caption className="label pb-6 text-left text-slate">Delivery options</caption>

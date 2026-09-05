@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { CareStrip } from '@/components/CareSymbols';
+import { MEDIA } from '@/lib/media';
 import { FabricSpecTable } from '@/components/FabricSpecTable';
 import { PageHeader } from '@/components/pages/PageHeader';
 import { SITE, openGraphFor } from '@/lib/site';
@@ -40,6 +42,73 @@ export default function FabricPage() {
 
           <div className="col-span-12 mt-12 lg:col-span-6 lg:col-start-7 lg:mt-0">
             <FabricSpecTable />
+          </div>
+        </div>
+      </section>
+
+      <div className="hairline" />
+
+      <section aria-labelledby="dye-heading" className="shell section-y">
+        <div className="grid12">
+          <div className="col-span-12 lg:col-span-5">
+            <h2 id="dye-heading" className="text-heading text-ink">
+              The two colourways that carry dye
+            </h2>
+            <p className="mt-6 max-w-measure text-body text-slate">
+              Every natural colourway leaves the mill the colour the cotton already was. Moss and
+              Sprout are the exceptions, dyed to a GOTS-approved low-impact recipe and washed until
+              the water runs clear. These are the baths and the swatch cards they are matched
+              against.
+            </p>
+          </div>
+
+          <div className="col-span-12 mt-12 lg:col-span-6 lg:col-start-7 lg:mt-0">
+            <figure>
+              <Image
+                src={MEDIA.dyeCool.src}
+                alt={MEDIA.dyeCool.alt}
+                width={MEDIA.dyeCool.width}
+                height={MEDIA.dyeCool.height}
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="label mt-3 text-slate">
+                Swatch card, cool range. Photograph by Mattricaria
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div className="grid12 mt-16">
+          <div className="col-span-12 sm:col-span-6 lg:col-span-5">
+            <figure>
+              <Image
+                src={MEDIA.dyeWarm.src}
+                alt={MEDIA.dyeWarm.alt}
+                width={MEDIA.dyeWarm.width}
+                height={MEDIA.dyeWarm.height}
+                sizes="(min-width: 1024px) 40vw, 50vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="label mt-3 text-slate">
+                Swatch card, warm range
+              </figcaption>
+            </figure>
+          </div>
+          <div className="col-span-12 mt-12 sm:col-span-6 sm:mt-0 lg:col-span-5 lg:col-start-7">
+            <figure>
+              <Image
+                src={MEDIA.dyeProcess.src}
+                alt={MEDIA.dyeProcess.alt}
+                width={MEDIA.dyeProcess.width}
+                height={MEDIA.dyeProcess.height}
+                sizes="(min-width: 1024px) 40vw, 50vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="label mt-3 text-slate">
+                Lifted from the bath, before the rinse
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>

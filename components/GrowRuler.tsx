@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { GarmentSilhouette, silhouetteHeightPx } from '@/components/GarmentSilhouette';
+import { GarmentSilhouette } from '@/components/GarmentSilhouette';
 import { productsInBand } from '@/lib/products';
 import { RULER_MAX_CM, RULER_MIN_CM, SIZE_BANDS, bandIndexForCm, clampCm } from '@/lib/sizes';
 
@@ -171,24 +171,22 @@ export function GrowRuler({ fallback = 'noscript' }: { readonly fallback?: 'nosc
         </h2>
 
         <div className="mt-8 grid12">
-          <div className="col-span-12 lg:col-span-6">
+          <div className="col-span-7 lg:col-span-6">
             <CrossfadeName name={band?.name ?? ''} />
             <p className="label mt-4 text-slate">
               <span className="tabular">{band?.range ?? ''}</span>
               <span aria-hidden="true"> / </span>
               {band?.age ?? ''}
             </p>
-            <p className="label mt-6 text-ink">
-              In this size: {inBand.map((product) => product.name).join(', ')}
-            </p>
           </div>
 
-          <div
-            className="col-span-12 mt-8 flex items-end lg:col-span-5 lg:col-start-8 lg:mt-0 lg:justify-end"
-            style={{ minHeight: 256 }}
-          >
-            <GarmentSilhouette heightPx={silhouetteHeightPx(displayCm)} />
+          <div className="col-span-5 flex items-end justify-end lg:col-span-5 lg:col-start-8 lg:min-h-[256px]">
+            <GarmentSilhouette cm={displayCm} />
           </div>
+
+          <p className="label col-span-12 mt-6 text-ink lg:col-span-6">
+            In this size: {inBand.map((product) => product.name).join(', ')}
+          </p>
         </div>
       </div>
 
@@ -252,10 +250,12 @@ export function GrowRuler({ fallback = 'noscript' }: { readonly fallback?: 'nosc
 
           {/* Band names, above the baseline. */}
           <div aria-hidden="true">
-            {SIZE_BANDS.map((b) => (
+            {SIZE_BANDS.map((b, i) => (
               <span
                 key={b.name}
-                className="label absolute whitespace-nowrap text-slate"
+                className={`label absolute whitespace-nowrap text-slate ${
+                  i === bandIndex ? '' : 'hidden sm:inline'
+                }`}
                 style={{
                   left: `${pct((b.minCm + b.maxCm) / 2)}%`,
                   bottom: BASELINE_OFFSET + BOUNDARY_TICK + 12,

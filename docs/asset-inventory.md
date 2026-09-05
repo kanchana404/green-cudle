@@ -20,48 +20,41 @@ Every file was verified before it was moved:
 `com.apple.provenance` remains on the copies. It is a kernel-set, SIP-owned
 attribute, it is not removable by the user, and it triggers nothing.
 
-## What each file is, and where it went
+## What each file is, and where it goes
 
-| File | Contents | Used on the site |
+| File | Contents | Where it appears |
 | --- | --- | --- |
-| `brand/greencuddle-logo-roundel.png` | Circular Greencuddle logo: script wordmark, illustrated sleeping baby in a bear-eared bonnet, bunny, cotton bolls, cream ground | No |
-| `brand/greencuddle-logo-dark.png` | The same logo on black with a glow, tagline "naturally dyed / softly loved", "BABY WEAR / SRI LANKA" | No |
-| `brand/greencuddle-coming-soon.jpg` | Social post: stork carrying a wrapped parcel, "Something special is on its way", "Coming soon", hearts, kraft tag reading "For your little miracle" | No |
-| `brand/greencuddle-packaging.jpg` | Kraft mailer box with an embroidered logo patch, green ribbon, thank-you tag, dried flowers, cream linen ground | No |
-| `textiles/dye-swatches-warm.jpg` | Natural-dye swatch flat-lay: pink, orange, ochre, brown, on cream linen | No |
-| `textiles/dye-swatches-cool-mattricaria.jpg` | Natural-dye swatch flat-lay: blue, sage, olive, celadon. Carries a visible credit, "Foto cedida por MATTRICARIA" | No |
-| `textiles/turmeric-dye-process.jpg` | A person holding a turmeric-dyed adult tank top over a dye bath | No |
-| `garments/bodysuits-tiedye-thirdparty.jpg` | Five baby bodysuits, tie-dyed, on a wooden floor, with visible **Gerber** brand labels | No |
+| `brand/greencuddle-logo-roundel.png` | Circular Greencuddle logo | Header brand mark, every page |
+| `brand/greencuddle-logo-dark.png` | The logo on black, with "BABY WEAR / SRI LANKA" | Footer brand band, on `--ink` |
+| `brand/greencuddle-coming-soon.jpg` | Launch card: parcel, kraft tag, "Coming soon" | `/journal`, captioned "From the archive" |
+| `brand/greencuddle-packaging.jpg` | Kraft mailer, embroidered patch, ribbon, tag | `/help#shipping`; the Newborn Kit tile; every product page as "AS IT ARRIVES" |
+| `textiles/dye-swatches-warm.jpg` | Natural-dye swatch flat-lay, warm range | `/fabric`, the dye section |
+| `textiles/dye-swatches-cool-mattricaria.jpg` | Natural-dye swatch flat-lay, cool range | `/fabric`, credited to Mattricaria in the caption |
+| `textiles/turmeric-dye-process.jpg` | Cloth lifted from a dye bath | `/fabric`, "Lifted from the bath, before the rinse" |
+| `garments/bodysuits-tiedye-thirdparty.jpg` | Five tie-dyed baby bodysuits | Cropped into seven product images, see below |
 
-## Why none of them is on the rendered site
+## The garment photograph, and the crops taken from it
 
-None of the eight can be used as Green Cuddles product imagery without breaking a
-hard rule in the brief:
+`garments/bodysuits-tiedye-thirdparty.jpg` is the only photograph of actual baby
+clothing in the set, so the product grid is built from it. Three of the five
+garments in the frame carry a visible **Gerber** neck label.
 
-- **`turmeric-dye-process.jpg`** — section 3.5 forbids photography of people. It
-  also shows an adult garment.
-- **`bodysuits-tiedye-thirdparty.jpg`** — the garments carry another company's
-  trademark on the neck label. Presenting them as Green Cuddles product would
-  misrepresent whose product it is. Separately it fails three style rules: the
-  brand is undyed and these are tie-dyed; the palette includes the pastel
-  baby-blue and baby-pink banned in section 4; and it is shot at an angle on a
-  wooden floor rather than square on flat colour.
-- **`dye-swatches-cool-mattricaria.jpg`** — carries a third-party photo credit
-  burned into the image. Cropping it out would remove an attribution.
-- **`dye-swatches-warm.jpg`** — warm-toned on a cream ground, against a brief
-  that is explicitly cool-toned and bans cream grounds near `#F4F1EA`. It also
-  depicts dyeing for a brand whose entire proposition is undyed.
-- **The four brand files** — they are the cream-ground, script-face,
-  illustrated-teddy, warm-kraft aesthetic that section 4 bans by name, item by
-  item: script faces, teddy bears, storks, hearts, and the phrase "little
-  miracle". They also carry the tagline "naturally dyed", which contradicts the
-  undyed positioning the brief specifies.
+Every crop in `public/media/products/` was checked against a contact sheet and
+cut to exclude those labels. Six label-free regions were found and used, plus
+the packaging photograph for the Newborn Kit, which is a boxed set and so is
+the honest image for it. The uncropped original is kept in `garments/`.
 
-Section 3.5 gives the instruction for exactly this case: *where you have no
-asset, use a solid colour block with the product name in mono*. That is what
-`components/GarmentBlock.tsx` renders, on every product surface.
+**Two things to settle before this goes live:**
 
-The files are kept in the repository because they are the client's own identity
-assets and they will be needed for packaging, invoices and social. They are not
-referenced by any component, so Next does not serve them to visitors unless
-someone requests the path directly.
+1. The neck labels are another company's trademark. The crops avoid them, but
+   the garments in frame are not Green Cuddles garments. Replace this photograph
+   with your own shoot before the site takes an order.
+2. The garments are tie-dyed in pinks, blues and ochres. The site's copy sells
+   undyed cotton in a cool green palette. The photography and the words are
+   currently telling different stories.
+
+## Safety
+
+Nothing about the relocation changed the files: the crops are new derivatives,
+the originals are byte-identical to what arrived. All eight passed the checks in
+the table above before anything was moved.

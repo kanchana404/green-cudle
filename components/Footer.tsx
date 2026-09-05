@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { CARE_SYMBOLS } from '@/components/CareSymbols';
 import { NewsletterForm } from '@/components/NewsletterForm';
+import { MEDIA } from '@/lib/media';
 import { CATEGORIES } from '@/lib/categories';
 import { FOOTER_ABOUT, FOOTER_HELP, SITE } from '@/lib/site';
 
@@ -59,6 +61,20 @@ export function Footer() {
           <div className="mt-6">
             <NewsletterForm tone="moss" />
           </div>
+        </div>
+      </div>
+
+      {/* The mark, on the one ground it was drawn for. */}
+      <div className="bg-ink">
+        <div className="shell flex justify-center py-16">
+          <Image
+            src={MEDIA.logoDark.src}
+            alt={MEDIA.logoDark.alt}
+            width={MEDIA.logoDark.width}
+            height={MEDIA.logoDark.height}
+            sizes="(min-width: 768px) 520px, 90vw"
+            className="h-auto w-full max-w-[520px] object-contain"
+          />
         </div>
       </div>
 

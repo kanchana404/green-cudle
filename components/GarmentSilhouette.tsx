@@ -2,23 +2,28 @@
  * A bodysuit, drawn once. Its rendered height is directly proportional to the
  * height on the rule: at 88cm it is genuinely twice its size at 44cm. The
  * proportionality is the point, so nothing here is stepped or clamped.
+ *
+ * The constant of proportionality lives in CSS as `--sil-k` so the drawing can
+ * be smaller on a phone without breaking the ratio: height is always
+ * `cm x --sil-k`, whatever the viewport.
  */
-export const SILHOUETTE_BASE_PX = 116;
 export const SILHOUETTE_BASE_CM = 44;
+/** Rendered height at 44cm, per breakpoint. Both give height = cm x k. */
+export const SILHOUETTE_BASE_PX = 116;
+export const SILHOUETTE_BASE_PX_SMALL = 72;
 
-export function silhouetteHeightPx(cm: number): number {
-  return (cm / SILHOUETTE_BASE_CM) * SILHOUETTE_BASE_PX;
-}
-
-export function GarmentSilhouette({ heightPx }: { readonly heightPx: number }) {
+export function GarmentSilhouette({ cm }: { readonly cm: number }) {
   return (
     <svg
       viewBox="0 0 96 128"
-      height={heightPx}
-      width={(heightPx * 96) / 128}
       aria-hidden="true"
       focusable="false"
-      style={{ display: 'block' }}
+      style={{
+        display: 'block',
+        height: `calc(var(--sil-k) * ${cm})`,
+        width: 'auto',
+        aspectRatio: '96 / 128',
+      }}
     >
       <path
         fill="var(--rule)"

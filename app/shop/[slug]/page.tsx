@@ -70,7 +70,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       <div className="shell pb-24 pt-12">
         <div className="grid12">
           <div className="col-span-12 lg:col-span-7">
-            <ProductViews name={product.name} />
+            <ProductViews name={product.name} slug={product.slug} />
           </div>
 
           {/* 96px clears the 64px sticky header and leaves 32px of air above it. */}

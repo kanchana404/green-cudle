@@ -1,15 +1,19 @@
-import { Bricolage_Grotesque, Geist_Mono } from 'next/font/google';
+import { Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 
 /**
- * Display. Variable across the optical-size axis so `opsz` can be pinned at
- * its maximum (48) in CSS. Weight 500 is applied at the element.
+ * Display. Bricolage Grotesque at weight 500 with the optical-size axis pinned
+ * to its maximum of 48.
+ *
+ * This is a single pinned instance rather than the full variable face: the
+ * variable file ships every axis and costs 75KB, where the one instance we
+ * actually draw with is 21KB. Same rendering, 54KB less on the critical path.
  */
-export const display = Bricolage_Grotesque({
-  subsets: ['latin'],
-  axes: ['opsz'],
+export const display = localFont({
+  src: [{ path: '../public/fonts/BricolageGrotesque-opsz48-500.woff2', weight: '500', style: 'normal' }],
   display: 'swap',
   variable: '--font-display',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
 /** Data. Sizes in cm, gsm, eyebrows, product metadata, care codes. */

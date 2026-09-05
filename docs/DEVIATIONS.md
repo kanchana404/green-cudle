@@ -142,3 +142,44 @@ emits no shadow.
 
 `scripts/check-css.mjs` compiles the real stylesheet and asserts on the CSS that
 actually ships, which is the only reliable way to catch this class of problem.
+
+## 13. Photography now carries the product surfaces
+
+Deviation 5 said no photograph could go on the site. That was reversed on the
+client's instruction: the supplied images are now the product imagery.
+
+`components/GarmentBlock.tsx` renders a `next/image` when given one and keeps
+the flat colour block as the fallback, so section 3.5 still holds wherever an
+image is missing. The garment photograph was cropped into seven label-free
+squares; the caveats are in `docs/asset-inventory.md`.
+
+The tie-dyed garments contradict the undyed positioning in the copy. That is a
+brief-level clash for the client to resolve, alongside deviation 10.
+
+## 14. Mono labels step up to 12px below `sm`
+
+The type scale puts the mono micro-label at 0.6875rem (11px). On a phone that is
+under the 12px legibility floor, and Lighthouse's mobile audit failed `/shop`
+at "57% legible text" because that label carries the filter headings, the style
+count and every product's weight and size range.
+
+Below `sm` the label renders at 0.75rem (12px), and the 0.625rem variant under
+the size chips does the same. From `sm` up, both return to the specified sizes,
+so the desktop design is exactly as drawn.
+
+## 15. The wordmark gives way to the roundel below `sm`
+
+At 320-430px the 32px brand mark, the mono wordmark and the Search / Cart / Menu
+cluster do not fit on one 64px line, and the wordmark wrapped to two.
+
+Below `sm` the roundel carries the brand alone and the wordmark stays in the
+accessible name; from `sm` up both are visible, as specified.
+
+## 16. Bricolage Grotesque is a pinned instance, not the variable face
+
+The variable face ships every axis at 75KB, on the critical path, for a design
+that draws one instance: weight 500 at optical size 48. That instance is 21KB.
+
+`app/fonts.ts` now self-hosts the pinned instance through `next/font/local`, so
+the rendering is identical and 54KB leaves the critical path. Mobile Lighthouse
+performance moved from 92-96 to 94-99 as a result.

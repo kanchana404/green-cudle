@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { GarmentBlock } from '@/components/GarmentBlock';
+import { productImage } from '@/lib/media';
 import { productBySlug } from '@/lib/products';
 import { SITE } from '@/lib/site';
 
@@ -73,6 +74,14 @@ export function Hero() {
             <GarmentBlock
               name={HERO_PRODUCT ? HERO_PRODUCT.name : 'Second Skin Bodysuit'}
               detail={HERO_PRODUCT ? HERO_PRODUCT.weight : '180 GSM RIB'}
+              image={
+                HERO_PRODUCT
+                  ? productImage(HERO_PRODUCT.slug, `${HERO_PRODUCT.name}, ${HERO_PRODUCT.weight}`)
+                  : undefined
+              }
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              quality={65}
+              priority
             />
 
             <dl className="mt-4 grid grid-cols-2 border-t border-rule sm:grid-cols-4">

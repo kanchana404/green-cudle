@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { PageHeader } from '@/components/pages/PageHeader';
 import { JOURNAL } from '@/lib/journal';
+import { MEDIA } from '@/lib/media';
 import { SITE, openGraphFor } from '@/lib/site';
 
 const DESCRIPTION =
@@ -39,6 +41,26 @@ export default function JournalPage() {
             </li>
           ))}
         </ul>
+
+        <figure className="mt-16 grid12">
+          <div className="col-span-12 md:col-span-5">
+            <Image
+              src={MEDIA.announcement.src}
+              alt={MEDIA.announcement.alt}
+              width={MEDIA.announcement.width}
+              height={MEDIA.announcement.height}
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
+          <figcaption className="col-span-12 mt-6 self-end md:col-span-6 md:col-start-7 md:mt-0">
+            <p className="label text-slate">From the archive</p>
+            <p className="mt-3 max-w-measure text-body text-ink">
+              The card that went out the month before the first run shipped. We kept it because it
+              is the last thing we published before there was anything to sell.
+            </p>
+          </figcaption>
+        </figure>
       </div>
     </>
   );

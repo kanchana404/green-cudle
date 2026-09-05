@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useId, useRef, useState } from 'react';
+import { MEDIA } from '@/lib/media';
 import { NAV, SITE } from '@/lib/site';
 import { useCart } from '@/components/CartProvider';
 
@@ -47,12 +49,24 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-rule bg-chalk">
-      <div className="shell flex h-16 items-center justify-between gap-6">
+      <div className="shell flex h-16 items-center justify-between gap-3 sm:gap-6">
         <Link
           href="/"
-          className="label flex h-touch items-center text-moss transition-colors duration-micro ease-gc hover:text-ink"
+          className="label flex h-touch items-center gap-3 text-moss transition-colors duration-micro ease-gc hover:text-ink"
         >
-          {SITE.wordmark}
+          <Image
+            src={MEDIA.logo.src}
+            alt=""
+            width={MEDIA.logo.width}
+            height={MEDIA.logo.height}
+            sizes="32px"
+            priority
+            className="h-8 w-8 shrink-0 object-contain"
+          />
+          {/* Below `sm` the roundel carries the brand on its own: the wordmark,
+              the nav cluster and a 32px mark do not fit on one line at 320px. */}
+          <span className="hidden whitespace-nowrap sm:inline">{SITE.wordmark}</span>
+          <span className="sr-only sm:hidden">{SITE.wordmark}</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">
@@ -70,7 +84,7 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <button
             type="button"
             onClick={() => setSearchOpen((open) => !open)}
@@ -132,7 +146,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMenuOpen(false)}
-                    className="block font-display text-display-l text-ink transition-colors duration-micro ease-gc hover:text-moss"
+                    className="flex min-h-touch items-center font-display text-display-l text-ink transition-colors duration-micro ease-gc hover:text-moss"
                   >
                     {item.label}
                   </Link>
