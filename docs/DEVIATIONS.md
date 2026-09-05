@@ -227,3 +227,29 @@ organic cotton" so the sentence is true. Nothing else was touched.
 `clamp(2.5rem, 6vw, 5.5rem)`: the supplied headline is a full sentence rather
 than the shorter one the scale was drawn for, and at the original size it pushed
 the body copy and both actions below the fold.
+
+## 20. The display face is a high-contrast serif
+
+Section 4 banned "a high-contrast display serif (Playfair, Cormorant, DM Serif,
+Editorial)" as part of the cream-serif cluster. Stardom is squarely that
+category, and it replaces Bricolage Grotesque at the client's request.
+
+The rule was written for the original positioning: a technical, undyed,
+cool-toned garment brand. The business is a naturally dyed gift company with a
+script logo and copy about welcome gifts, and the grotesque was pulling against
+all of it. The ban is obsolete rather than broken.
+
+Three constraints keep it honest:
+
+- **It is bound to size, not to elements.** `app/globals.css` attaches the face
+  to `.text-display-xl` and `.text-display-l` rather than to `h1`-`h4`, so it
+  cannot leak down to the 24px heading size where its hairlines break up.
+  Headings below display size stay in General Sans.
+- **Weight 400, never 500.** Stardom ships one weight. Asking for 500 would make
+  the browser synthesise a bold, which wrecks a high-contrast face. The two
+  weights visible on any screen are still exactly 400 and 500.
+- **Tracking was retuned.** The display sizes carried -0.035em and -0.03em,
+  which suit a grotesque and crush a serif. They are now -0.015em and -0.01em.
+
+It is also slightly cheaper: 19KB against Bricolage's 21KB, and the four faces
+on the critical path total 72KB.

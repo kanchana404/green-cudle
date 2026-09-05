@@ -68,14 +68,23 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Bricolage Grotesque, weight 500. The face is a pinned instance at the
-     maximum optical size of 48, so no variation settings are needed here. */
+  /*
+   * Stardom is bound to the two display sizes rather than to h1-h4. It is a
+   * high-contrast face with one weight: at 24px the hairlines thin out, and
+   * asking for 500 would make the browser synthesise a bold it does not have.
+   * Headings below display size stay in General Sans.
+   */
   .font-display,
+  .text-display-xl,
+  .text-display-l {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-weight: 400;
+  }
+
   h1,
   h2,
   h3,
   h4 {
-    font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
     font-weight: 500;
   }
 

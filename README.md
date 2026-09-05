@@ -57,8 +57,10 @@ Image provenance and safety checks are in `docs/asset-inventory.md`.
 Self-hosted and loaded through `next/font`, so there is no font `<link>` tag and
 no layout shift:
 
-- **Display** — Bricolage Grotesque (`next/font/google`), weight 500, `opsz`
-  pinned to its maximum of 48.
+- **Display** — Stardom (Fontshare), one weight, bound in CSS to
+  `text-display-xl` and `text-display-l` only. It is a high-contrast face whose
+  hairlines thin out below roughly 28px, so it cannot be reached at heading
+  sizes.
 - **Body** — General Sans from Fontshare, weights 400 and 500, served from
   `public/fonts/` via `next/font/local`.
 - **Data** — Geist Mono (`next/font/google`), weight 500.

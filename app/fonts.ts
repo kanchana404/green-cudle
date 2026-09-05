@@ -2,18 +2,18 @@ import { Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 
 /**
- * Display. Bricolage Grotesque at weight 500 with the optical-size axis pinned
- * to its maximum of 48.
+ * Display. Stardom from Fontshare, self-hosted.
  *
- * This is a single pinned instance rather than the full variable face: the
- * variable file ships every axis and costs 75KB, where the one instance we
- * actually draw with is 21KB. Same rendering, 54KB less on the critical path.
+ * One weight, no italic, and hairlines thin enough that it is only used at
+ * display sizes — `app/globals.css` binds it to `text-display-xl` and
+ * `text-display-l` rather than to the heading elements, so it cannot leak down
+ * to 24px where it would start to break up.
  */
-export const display = localFont({
-  src: [{ path: '../public/fonts/BricolageGrotesque-opsz48-500.woff2', weight: '500', style: 'normal' }],
+export const stardom = localFont({
+  src: [{ path: '../public/fonts/Stardom-Regular.woff2', weight: '400', style: 'normal' }],
   display: 'swap',
   variable: '--font-display',
-  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+  fallback: ['ui-serif', 'Georgia', 'serif'],
 });
 
 /** Data. Sizes in cm, gsm, eyebrows, product metadata, care codes. */

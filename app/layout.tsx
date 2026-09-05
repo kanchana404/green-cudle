@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { display, generalSans, mono } from '@/app/fonts';
+import { generalSans, mono, stardom } from '@/app/fonts';
 import { CartProvider } from '@/components/CartProvider';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${display.variable} ${generalSans.variable} ${mono.variable}`}>
+    <html lang="en-GB" className={`${stardom.variable} ${generalSans.variable} ${mono.variable}`}>
       <head>
         {/*
           Scroll reveal starts at opacity 0 and is switched on by an observer.

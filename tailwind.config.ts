@@ -62,8 +62,8 @@ const config: Config = {
       fontSize: {
         // The hero headline is a sentence, not three words, so the top of the
         // clamp is pulled in to keep it and the body copy on the first screen.
-        'display-xl': ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '0.96', letterSpacing: '-0.035em' }],
-        'display-l': ['clamp(2.25rem, 5vw, 4rem)', { lineHeight: '1', letterSpacing: '-0.03em' }],
+        'display-xl': ['clamp(2.5rem, 6vw, 5.5rem)', { lineHeight: '1.0', letterSpacing: '-0.015em' }],
+        'display-l': ['clamp(2.25rem, 5vw, 4rem)', { lineHeight: '1.05', letterSpacing: '-0.01em' }],
         heading: ['1.5rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
         'body-l': ['1.125rem', { lineHeight: '1.55' }],
         body: ['1rem', { lineHeight: '1.6' }],
