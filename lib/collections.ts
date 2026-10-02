@@ -16,6 +16,8 @@ export type Collection = {
   readonly swatch: string;
   /** What the dye is drawn from. */
   readonly dyeSource: string;
+  /** Price of the box in this collection, in rupees. */
+  readonly price: number;
   /** Two sentences. Names the dye and what it does to the cloth. */
   readonly description: readonly [string, string];
 };
@@ -27,6 +29,7 @@ export const COLLECTIONS: readonly Collection[] = [
     colourName: 'Yellow',
     swatch: '#d1a847',
     dyeSource: 'Turmeric root',
+    price: 4800,
     description: [
       'Turmeric root, simmered and strained, which is where the yellow comes from and why no two boxes are quite the same depth.',
       'The resist is tied by hand before the bath, so the pale rings are the places the dye could not reach.',
@@ -38,6 +41,7 @@ export const COLLECTIONS: readonly Collection[] = [
     colourName: 'Lavender',
     swatch: '#b6a3c7',
     dyeSource: 'Logwood and madder',
+    price: 5100,
     description: [
       'Logwood pulled towards violet with a little madder, at the lightest concentration we can hold evenly across a batch.',
       'It is the palest dye we run, so the cloth keeps most of the softness it had undyed.',
@@ -49,6 +53,7 @@ export const COLLECTIONS: readonly Collection[] = [
     colourName: 'Light pink',
     swatch: '#d6a29a',
     dyeSource: 'Madder root',
+    price: 4800,
     description: [
       'Madder root at a short steep, which gives a warm pink rather than the brick red a long bath would.',
       'The clouded pattern is a loose fold rather than a tie, so the edges stay soft instead of ringed.',
@@ -60,6 +65,7 @@ export const COLLECTIONS: readonly Collection[] = [
     colourName: 'Brown',
     swatch: '#8b694b',
     dyeSource: 'Walnut hull and myrobalan',
+    price: 4600,
     description: [
       'Walnut hull over a myrobalan base, the darkest of the five, and the only one that deepens slightly with the first wash.',
       'Petals are folded and clamped before dyeing, which is why the pale shapes sit in rows rather than scattered.',
@@ -71,6 +77,7 @@ export const COLLECTIONS: readonly Collection[] = [
     colourName: 'Light blue',
     swatch: '#9fc1c6',
     dyeSource: 'Indigo',
+    price: 5100,
     description: [
       'A single short dip in indigo, lifted before the vat can take it past a pale blue.',
       'Indigo oxidises in air rather than in the bath, so the colour arrives in the minute after the cloth comes out.',
@@ -102,11 +109,10 @@ export const BOX_CONTENTS: readonly BoxPiece[] = [
 
 export const PIECE_COUNT = BOX_CONTENTS.reduce((total, piece) => total + piece.quantity, 0);
 
-/** One box, one price, whichever collection you choose. */
-export const BOX_PRICE = 11900;
-export const BOX_WAS_PRICE = 14300;
+/** The cheapest collection, for anywhere the box is priced without one chosen. */
+export const LOWEST_PRICE = Math.min(...COLLECTIONS.map((c) => c.price));
 
-/** Rs 11,900 - grouped, no decimals, rendered tabular at the element. */
+/** Rs 4,800 - grouped, no decimals, rendered tabular at the element. */
 export function formatPrice(rupees: number): string {
   return `Rs ${rupees.toLocaleString('en-IN')}`;
 }

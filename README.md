@@ -75,8 +75,8 @@ eight separate garments before it was one gift box, and old links should not
 
 ## The model
 
-`lib/collections.ts` is the whole catalogue. There is one box at one price. It
-holds the same seven pieces every time (`BOX_CONTENTS`); what changes between
+`lib/collections.ts` is the whole catalogue. There is one box, priced per
+collection. It holds the same seven pieces every time (`BOX_CONTENTS`); what changes between
 the five collections is the plant the cotton was dyed with. The buyer picks a
 collection and a height band, and that is the entire configuration.
 

@@ -74,7 +74,7 @@ export function Hero() {
               HERO_COLLECTION
                 ? collectionImage(
                     HERO_COLLECTION.slug,
-                    `${HERO_COLLECTION.name}: cotton dyed with ${HERO_COLLECTION.dyeSource.toLowerCase()}`
+                    `${HERO_COLLECTION.name}: the full set laid flat, dyed with ${HERO_COLLECTION.dyeSource.toLowerCase()}`
                   )
                 : undefined
             }

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { GarmentBlock } from '@/components/GarmentBlock';
 import { CollectionSwatch } from '@/components/CollectionSwatch';
 import { Price } from '@/components/Price';
-import { BOX_PRICE, BOX_WAS_PRICE, PIECE_COUNT, type Collection } from '@/lib/collections';
+import { PIECE_COUNT, type Collection } from '@/lib/collections';
 import { collectionImage } from '@/lib/media';
 
 export function CollectionTile({
@@ -22,7 +22,7 @@ export function CollectionTile({
           detail={collection.colourName}
           image={collectionImage(
             collection.slug,
-            `${collection.name}: cotton dyed with ${collection.dyeSource.toLowerCase()}`
+            `${collection.name}: the full set laid flat, dyed with ${collection.dyeSource.toLowerCase()}`
           )}
           sizes={sizes}
           priority={priority}
@@ -32,7 +32,7 @@ export function CollectionTile({
           {collection.name}
         </h3>
       </Link>
-      <Price price={BOX_PRICE} wasPrice={BOX_WAS_PRICE} className="mt-1 text-body" />
+      <Price price={collection.price} className="mt-1 text-body" />
       <p className="label mt-3 text-slate">
         <span className="tabular">{PIECE_COUNT}</span> pieces <span aria-hidden="true">/</span>{' '}
         {collection.dyeSource}

@@ -55,9 +55,9 @@ export const MEDIA = {
   },
 } as const satisfies Record<string, Media>;
 
-/** The square cloth shot for a collection, plus its close detail crop. */
+/** The square shot of a collection's full set laid flat, plus its close detail crop. */
 export function collectionImage(slug: string, alt: string): Media {
-  return { src: `/media/collections/${slug}.jpg`, width: 900, height: 900, alt };
+  return { src: `/media/collections/${slug}.jpg`, width: 560, height: 560, alt };
 }
 
 export function collectionDetailImage(slug: string, alt: string): Media {

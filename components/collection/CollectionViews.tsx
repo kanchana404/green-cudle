@@ -10,10 +10,10 @@ import { MEDIA, collectionDetailImage, collectionImage } from '@/lib/media';
 export function CollectionViews({ collection }: { readonly collection: Collection }) {
   const views = [
     {
-      caption: 'THE CLOTH',
+      caption: 'THE SET',
       image: collectionImage(
         collection.slug,
-        `${collection.name}: cotton dyed with ${collection.dyeSource.toLowerCase()}`
+        `${collection.name}: the full set laid flat, dyed with ${collection.dyeSource.toLowerCase()}`
       ),
     },
     {

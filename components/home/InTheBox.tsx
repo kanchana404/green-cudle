@@ -1,7 +1,7 @@
 import { BoxContents } from '@/components/BoxContents';
 import { Price } from '@/components/Price';
 import { Reveal } from '@/components/Reveal';
-import { BOX_PRICE, BOX_WAS_PRICE, PIECE_COUNT } from '@/lib/collections';
+import { LOWEST_PRICE, PIECE_COUNT } from '@/lib/collections';
 
 export function InTheBox() {
   return (
@@ -19,7 +19,8 @@ export function InTheBox() {
               ankle, and the four things that turn out to matter in the first weeks. Nothing in the
               box is filler.
             </p>
-            <Price price={BOX_PRICE} wasPrice={BOX_WAS_PRICE} className="mt-8 text-body-l" />
+            <p className="label mt-8 text-slate">From</p>
+            <Price price={LOWEST_PRICE} className="mt-1 text-body-l" />
           </div>
 
           {/* Cols 7-12. */}

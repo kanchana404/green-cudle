@@ -8,8 +8,6 @@ import { BuyPanel } from '@/components/collection/BuyPanel';
 import { CollectionViews } from '@/components/collection/CollectionViews';
 import { FabricSpecTable } from '@/components/FabricSpecTable';
 import {
-  BOX_PRICE,
-  BOX_WAS_PRICE,
   COLLECTIONS,
   PIECE_COUNT,
   collectionBySlug,
@@ -89,7 +87,7 @@ export default async function CollectionPage({
             <div className="lg:sticky lg:top-24">
               <p className="label text-slate">{collection.dyeSource}</p>
               <h1 className="mt-4 font-display text-display-l text-ink">{collection.name}</h1>
-              <Price price={BOX_PRICE} wasPrice={BOX_WAS_PRICE} className="mt-6 text-body-l" />
+              <Price price={collection.price} className="mt-6 text-body-l" />
               <p className="label mt-3 text-slate">
                 <span className="tabular">{PIECE_COUNT}</span> pieces / One box
               </p>
