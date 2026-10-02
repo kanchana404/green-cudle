@@ -30,10 +30,10 @@ export const MEDIA = {
     alt: 'Green Cuddles launch announcement: a wrapped cotton parcel with a kraft gift tag',
   },
   packaging: {
-    src: '/media/brand/greencuddle-packaging.jpg',
-    width: 1080,
-    height: 1179,
-    alt: 'A Green Cuddles order: kraft mailer box, embroidered patch, cotton ribbon and a recycled-paper tag',
+    src: '/media/brand/greencuddle-gift-box.jpg',
+    width: 1122,
+    height: 1402,
+    alt: 'A Green Cuddles gift box: a woven box tied with jute twine, a kraft thank-you tag and a thank-you card',
   },
   dyeCool: {
     src: '/media/textiles/dye-swatches-cool-mattricaria.jpg',
@@ -55,11 +55,7 @@ export const MEDIA = {
   },
 } as const satisfies Record<string, Media>;
 
-/** The square shot of a collection's full set laid flat, plus its close detail crop. */
+/** The square shot of a collection's full set laid flat. */
 export function collectionImage(slug: string, alt: string): Media {
   return { src: `/media/collections/${slug}.jpg`, width: 560, height: 560, alt };
-}
-
-export function collectionDetailImage(slug: string, alt: string): Media {
-  return { src: `/media/collections/${slug}-detail.jpg`, width: 700, height: 700, alt };
 }

@@ -27,7 +27,7 @@ attribute, it is not removable by the user, and it triggers nothing.
 | `brand/greencuddle-logo-roundel.png` | Circular Greencuddle logo | Header brand mark, every page |
 | `brand/greencuddle-logo-dark.png` | The logo on black, with "BABY WEAR / SRI LANKA" | Footer brand band, on `--ink` |
 | `brand/greencuddle-coming-soon.jpg` | Launch card: parcel, kraft tag, "Coming soon" | `/journal`, captioned "From the archive" |
-| `brand/greencuddle-packaging.jpg` | Kraft mailer, embroidered patch, ribbon, tag | `/help#shipping`; the Newborn Kit tile; every product page as "AS IT ARRIVES" |
+| `brand/greencuddle-gift-box.jpg` | Woven gift box, jute twine, kraft thank-you tag and card | `/help#shipping`; every collection page as "AS IT ARRIVES" |
 | `textiles/dye-swatches-warm.jpg` | Natural-dye swatch flat-lay, warm range | `/fabric`, the dye section |
 | `textiles/dye-swatches-cool-mattricaria.jpg` | Natural-dye swatch flat-lay, cool range | `/fabric`, credited to Mattricaria in the caption |
 | `textiles/turmeric-dye-process.jpg` | Cloth lifted from a dye bath | `/fabric`, "Lifted from the bath, before the rinse" |

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { collectionDetailImage, collectionImage, type Media } from '@/lib/media';
+import { collectionImage, type Media } from '@/lib/media';
 
 /**
  * The product surface. Square, flat, no radius, no border, no shadow.
@@ -65,4 +65,4 @@ export function GarmentBlock({
   );
 }
 
-export { collectionImage, collectionDetailImage };
+export { collectionImage };

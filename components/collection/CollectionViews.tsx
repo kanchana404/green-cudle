@@ -1,9 +1,9 @@
 import { GarmentBlock } from '@/components/GarmentBlock';
 import type { Collection } from '@/lib/collections';
-import { MEDIA, collectionDetailImage, collectionImage } from '@/lib/media';
+import { MEDIA, collectionImage } from '@/lib/media';
 
 /**
- * Three square surfaces, stacked and scrolled with the page. Not a carousel:
+ * Two square surfaces, stacked and scrolled with the page. Not a carousel:
  * there is nothing to page through and nothing hidden behind a control.
  * Each caption names what is actually in the frame.
  */
@@ -16,18 +16,11 @@ export function CollectionViews({ collection }: { readonly collection: Collectio
         `${collection.name}: the full set laid flat, dyed with ${collection.dyeSource.toLowerCase()}`
       ),
     },
-    {
-      caption: 'DYE DETAIL',
-      image: collectionDetailImage(
-        collection.slug,
-        `${collection.name}: close detail of the dye and the resist pattern`
-      ),
-    },
     { caption: 'AS IT ARRIVES', image: MEDIA.packaging },
   ];
 
   return (
-    <ul aria-label={`${collection.name}, three views`} className="flex flex-col gap-6">
+    <ul aria-label={`${collection.name}, two views`} className="flex flex-col gap-6">
       {views.map((view, index) => (
         <li key={view.caption}>
           <GarmentBlock

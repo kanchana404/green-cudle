@@ -118,7 +118,7 @@ export default function HelpPage() {
             className="h-auto w-full"
           />
           <figcaption className="label mt-3 text-slate">
-            Kraft box, cotton ribbon, recycled paper. No plastic in the parcel
+            Woven box, jute twine, kraft card. No plastic in the parcel
           </figcaption>
         </figure>
 
